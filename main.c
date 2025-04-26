@@ -18,10 +18,10 @@ void mostrarVentanaInicio() {
         switch (opcion) {
             case 1:
                 iniciarSesion();
-                return; // Salimos de esta función después de iniciar sesión
+                return;
             case 2:
                 registrarse();
-                return; // Salimos de esta función después de registrarse
+                return;
             default:
                 printf("Opción inválida. Intenta de nuevo.\n");
         }
