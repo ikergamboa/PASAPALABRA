@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <sqlite3.h>
 
+// Declaración anticipada de funciones
+int callback(void *data, int argc, char **argv, char **azColName);
+int insertar_usuario(sqlite3 *db, const char *usuario, const char *contrasena);
+
 int main(int argc, char* argv[]) {
     sqlite3 *db;
     char *err_msg = 0;
@@ -15,7 +19,7 @@ int main(int argc, char* argv[]) {
     }
     
     // Crear una tabla
-    const char *sql = "CREATE TABLE IF NOT EXISTS Palabras(Id INT PRIMARY KEY, Palabra TEXT, Definicion TEXT);";
+    const char *sql = "CREATE TABLE IF NOT EXISTS Usuarios(Usuario TEXT PRIMARY KEY, Contraseña TEXT);";
     
     rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
     
@@ -26,35 +30,43 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     
-    // Insertar datos
-    sql = "INSERT INTO Palabras(Id, Palabra, Definicion) VALUES(1, 'Águila', 'Ave rapaz de gran tamaño');";
+    // Insertar datos usando la función
     
-    rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
-    
-    if (rc != SQLITE_OK ) {
-        fprintf(stderr, "Error SQL: %s\n", err_msg);
-        sqlite3_free(err_msg);
-    }
-    
-    rc = sqlite3_exec(db, sql, callback, 0, &err_msg);
-    
-    if (rc != SQLITE_OK ) {
-        fprintf(stderr, "Error SQL: %s\n", err_msg);
-        sqlite3_free(err_msg);
-    }
+    // Consultar datos
+
     
     // Cerrar la base de datos
     sqlite3_close(db);
     
     return 0;
 }
-// Consultar datos (usando callback)
-    sql = "SELECT * FROM Palabras;";
+
+// Función para insertar usuarios
+int insertar_usuario(sqlite3 *db, const char *usuario, const char *contrasena) {
+    char *err_msg = 0;
+    char sql[256];
     
-    int callback(void *data, int argc, char **argv, char **azColName) {
-        for(int i = 0; i < argc; i++) {
-            printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-        }
-        printf("\n");
-        return 0;
+    // Preparar la sentencia SQL
+    snprintf(sql, sizeof(sql), 
+             "INSERT INTO Usuarios(Usuario, Contraseña) VALUES('%s', '%s');",
+             usuario, contrasena);
+    
+    // Ejecutar la inserción
+    int rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
+    
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Error al insertar: %s\n", err_msg);
+        sqlite3_free(err_msg);
     }
+    
+    return rc;
+}
+
+// Función callback para mostrar resultados
+int callback(void *data, int argc, char **argv, char **azColName) {
+    for(int i = 0; i < argc; i++) {
+        printf("%-12s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    }
+    printf("------------------------\n");
+    return 0;
+}
