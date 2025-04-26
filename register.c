@@ -12,11 +12,15 @@ void registerUser() {
   printf("Nombre de usuario: ");
   scanf("%s", username);
 
+  if (strcmp(username, "exit") == 0) exit(0); // Permitir salir
+
   printf("Contraseña: ");
   scanf("%s", password);
 
   printf("Confirmar contraseña: ");
   scanf("%s", confirmPassword);
+
+  if (strcmp(username, "exit") == 0) exit(0); // Permitir salir
 
   if (strcmp(password, confirmPassword) != 0) {
     printf("Las contraseñas no coinciden. Intenta de nuevo.\n");
