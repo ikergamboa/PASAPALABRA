@@ -72,11 +72,24 @@ int insertar_usuario(sqlite3 *db, const char *usuario, const char *contrasena) {
     return rc;
 }
 
-// Función callback para mostrar resultados
-int callback(void *data, int argc, char **argv, char **azColName) {
-    printf("\n--- Registro de Usuario ---\n");
-    for(int i = 0; i < argc; i++) {
-        printf("%-15s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+// Función para mirar a ver si los nombres de usuario ya existen en la tabla
+bool usuario_existe_seguro(sqlite3 *db, const char *usuario) {
+    sqlite3_stmt *stmt;
+    bool existe = false;
+    
+    const char *sql = "SELECT 1 FROM Usuarios WHERE Usuario = ? LIMIT 1;";
+    
+    if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
+        fprintf(stderr, "Error al preparar consulta: %s\n", sqlite3_errmsg(db));
+        return false;
     }
-    return 0;
+    
+    sqlite3_bind_text(stmt, 1, usuario, -1, SQLITE_STATIC);
+    
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        existe = true;
+    }
+    
+    sqlite3_finalize(stmt);
+    return existe;
 }
