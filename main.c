@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "login.h"
+#include "register.h"
 
-void mostrarVentanaInicio();
-
-void mostrarVentanaInicio() {
+int main(void) {
     int opcion;
 
     while (1) {
@@ -18,10 +18,8 @@ void mostrarVentanaInicio() {
         switch (opcion) {
             case 1:
                 iniciarSesion();
-                return;
             case 2:
-                registrarse();
-                return;
+                registerUser();
             default:
                 printf("Opción inválida. Intenta de nuevo.\n");
         }
