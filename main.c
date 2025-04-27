@@ -8,8 +8,8 @@
 
 int main(void) {
 
-    //primeraInterfaz();
-    roscoUnJugador();
+    primeraInterfaz();
+    //roscoUnJugador();
     //rankingGlobal();
 
     leerCSV("palabras.csv");

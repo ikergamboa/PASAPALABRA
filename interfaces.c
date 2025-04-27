@@ -69,17 +69,19 @@ void iniciarSesion() {
 
     // Verificar si el usuario existe
     if (!usuario_existe_seguro(db, username)) {
-        printf("El usuario no existe.\n");
+        printf("El usuario o la contraseña son incorrectos.\n");
         sqlite3_close(db);
+        iniciarSesion();
         return;
     }
 
     // Verificar si la contraseña es correcta
     if (verificar_contrasena(db, username, password)) {
         printf("¡Inicio de sesión exitoso!\n");
-        // Aquí podrías continuar con tu flujo normal después de iniciar sesión.
+        ventanaPrincipal();
     } else {
-        printf("Contraseña incorrecta.\n");
+        printf("El usuario o la contraseña son incorrectos.\n");
+        iniciarSesion();
     }
 
     sqlite3_close(db);
@@ -114,6 +116,7 @@ bool registerUser() {
     // 2. Validaciones
     if (strcmp(password, confirmPassword) != 0) {
         printf("Las contrasenyas no coinciden.\n");
+        registerUser();
         return false;
     }
 
@@ -141,12 +144,14 @@ bool registerUser() {
     if (insertar_usuario(db, username, password) == SQLITE_DONE) {
         printf("Registro exitoso\n");
         exito = true;
+        ventanaPrincipal();
     } else {
-        fprintf(stderr, "Error al registrar usuario *****.\n");
+        fprintf(stderr, "Error al registrar usuario.\n");
     }
 
 cleanup:
     sqlite3_close(db);
+    registerUser();
     return exito;
 }
 
