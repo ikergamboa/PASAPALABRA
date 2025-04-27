@@ -209,6 +209,12 @@ void roscoUnJugador() {
                 
             }
             int indice = buscar_indice_letra(letras[i]);
+
+            if (dict.almacen[indice].entradas[0].status != 0) {
+                i++;
+                continue;
+            }
+
             printf("\nLetra %c:", letras[i]);
             printf("\nDefinicion: %s", dict.almacen[indice].entradas[0].definicion);
             printf("\nEscribe tu respuesta:");

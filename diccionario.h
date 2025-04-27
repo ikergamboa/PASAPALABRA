@@ -16,7 +16,7 @@ typedef struct {
 } Almacen; // Esta estructura almacena las palabras por cada letra.
 
 typedef struct {
-    Almacen almacen[25]; // 25 letras del alfabeto.
+    Almacen almacen[26]; // 25 letras del alfabeto.
     int totalPreguntas;
 } DiccionarioJuego; // Aquí guardamos las palabras que se utilizarán en el juego.
 

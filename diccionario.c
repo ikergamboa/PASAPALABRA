@@ -19,7 +19,7 @@ void crearAlmacenPorLetra(char letra, const char *palabra, const char *definicio
   letra = toupper(letra);
   int indice = buscar_indice_letra(letra);
 
-  if(indice != -1 && almacen[indice].size < 25) {
+  if(indice != -1 && almacen[indice].size < 26) {
     Entrada *nuevaEntrada = &almacen[indice].entradas[almacen[indice].size];
     nuevaEntrada->letra = letra;
     strncpy(nuevaEntrada->palabra, palabra, 49); // 49 para dejar espacio para el \0
@@ -56,7 +56,7 @@ DiccionarioJuego crearDiccionarioJuego() {
     DiccionarioJuego diccionario = {0};
     srand(time(NULL));
 
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 26; i++) {
         if (almacen[i].size > 0) {
             int randIndex = rand() % almacen[i].size; // se selecciona un valor random entre 0 y el tamaño de la lista de palabras -1 (10)
 
@@ -78,7 +78,7 @@ DiccionarioJuego crearDiccionarioJuego() {
 }
 
 void imprimirDiccionarioJuego(DiccionarioJuego dict){
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 26; i++) {
         if (dict.almacen[i].size > 0) {
             printf("\nLetra %c (%d palabras):\n", 'A' + i, dict.almacen[i].size);
             for (int j = 0; j < dict.almacen[i].size; j++) {
