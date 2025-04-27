@@ -8,11 +8,16 @@ void primeraInterfaz(){
     int opcion;
 
     while (1) {
-        printf("\n---VENTANA DE INICIO---\n");
-        printf("¡Bienvenido a Pasapalabra!\n");
-        printf("1. Iniciar sesión\n");
-        printf("2. Registrarse\n");
-        printf("Elige una opción: ");
+        printf("-------VENTANA DE INICIO-------\n");
+        printf("|                             |\n");
+        printf("|  Bienvenido a Pasapalabra   |\n");
+        printf("|                             |\n");
+        printf("|      1. Iniciar sesion      |\n");
+        printf("|      2. Registrarse         |\n");
+        printf("|                             |\n");
+        printf("-------------------------------\n");
+        printf("\n");
+        printf("Elige una opcion: ");
         scanf("%d", &opcion);
 
         switch (opcion) {
@@ -32,16 +37,18 @@ void iniciarSesion() {
     char username[50];
     char password[50];
 
-    printf("\n---VENTANA DE INICIO DE SESIÓN---\n");
+    printf("\n---VENTANA DE INICIO DE SESION---\n");
     printf("Nombre de usuario: ");
     scanf("%s", username);
 
-    if (strcmp(username, "exit") == 0) exit(0);
+    if (strcmp(username, "salir") == 0) exit(0);
+    if (strcmp(username, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
 
-    printf("Contraseña: ");
+    printf("Contrasenya: ");
     scanf("%s", password);
 
-    if (strcmp(password, "exit") == 0) exit(0);
+    if (strcmp(password, "salir") == 0) exit(0);
+    if (strcmp(password, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
 
     //TODO Falta verificar si el usuario y la contraseña son correctos
     //TODO Falta verificar si el usuario existe
@@ -58,15 +65,20 @@ void registerUser() {
     printf("Nombre de usuario: ");
     scanf("%s", username);
 
-    if (strcmp(username, "exit") == 0) exit(0); // Permitir salir
+    if (strcmp(username, "salir") == 0) exit(0); // Permitir salir
+    if (strcmp(username, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
 
     printf("Contraseña: ");
     scanf("%s", password);
 
+    if (strcmp(password, "salir") == 0) exit(0); // Permitir salir
+    if (strcmp(password, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
+
     printf("Confirmar contraseña: ");
     scanf("%s", confirmPassword);
 
-    if (strcmp(username, "exit") == 0) exit(0); // Permitir salir
+    if (strcmp(confirmPassword, "salir") == 0) exit(0); // Permitir salir
+    if (strcmp(confirmPassword, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
 
     if (strcmp(password, confirmPassword) != 0) {
         printf("Las contraseñas no coinciden. Intenta de nuevo.\n");

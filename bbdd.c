@@ -1,34 +1,8 @@
 #include <stdio.h>
-#include <sqlite3.h>
+#include "sqlite3.h"
 #include <stdbool.h>
 #include "bbdd.h"
 
-
-int main(int argc, char* argv[]) {
-    sqlite3 *db;
-    
-    // Abrir o crear la base de datos
-    int rc = sqlite3_open("ejemplo.db", &db);
-    
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "No se puede abrir la base de datos: %s\n", sqlite3_errmsg(db));
-        sqlite3_close(db);
-        return 1;
-    }
-    
-    // Crear tabla usando la función
-
-    
-    // Insertar datos usando la función
-
-    
-    // Consultar datos
-    
-    // Cerrar la base de datos
-    sqlite3_close(db);
-    
-    return 0;
-}
 
 // Función para crear la tabla de usuarios
 bool crear_tabla_usuarios(sqlite3 *db) {
