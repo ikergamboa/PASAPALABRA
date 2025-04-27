@@ -181,8 +181,9 @@ void roscoUnJugador() {
     char letras[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z'};
     int total_letras = sizeof(letras) / sizeof(letras[0]);
     int i = 0;
-
+    leerCSV("palabras.csv");
     DiccionarioJuego dict = crearDiccionarioJuego();
+    int respuestasCorrectas = 0;
 
 
     printf("\n---VENTANA UN JUGADOR---\n\n");
@@ -198,29 +199,48 @@ void roscoUnJugador() {
 
     printf("\nEscribe \"JUGAR\" para comenzar: ");
     scanf("%s", input);
-
+    
     if (strcmp(input, "JUGAR") == 0) {
         printf("\n¡Correcto! Empezamos en la letra A.\n");
 
-        while (i < total_letras) {
-            printf("\nLetra %c: Escribe tu respuesta (o escribe \"pasar\" para saltar): ", letras[i]);
+        while (respuestasCorrectas < total_letras) {
+            if (i >= total_letras) {
+                i = 0;
+                
+            }
+            int indice = buscar_indice_letra(letras[i]);
+            printf("\nLetra %c:", letras[i]);
+            printf("\nDefinicion: %s", dict.almacen[indice].entradas[0].definicion);
+            printf("\nEscribe tu respuesta:");
             scanf("%s", input);
 
             if (strcmp(input, "pasar") == 0) {
                 printf("Saltando la letra %c...\n", letras[i]);
-                i++; // Pasa a la siguiente letra
+                i++;
             } else {
-                printf("Respuesta registrada para la letra %c.\n", letras[i]);
-                i++; // También avanza
+                if (strcmp(input, dict.almacen[indice].entradas[0].palabra) == 0)
+                {
+                    printf("Respuesta correcta");
+                    dict.almacen[indice].entradas[0].status = 1;
+                    respuestasCorrectas++;
+                    i++;
+                } else {
+                    printf("Respuesta incorrecta");
+                    dict.almacen[indice].entradas[0].status = 2;
+                    respuestasCorrectas++;
+                    i++;
+                }
+                
             }
         }
 
         printf("\n¡Has terminado el rosco!\n");
     } else {
-        printf("\nNo escribiste \"JUGAR\". Terminando programa.\n");
+        printf("\nNo escribiste 'JUGAR'. Terminando programa.\n");
     }
-
 }
+
+
 
 void rankingGlobal() {
     sqlite3 *db;
