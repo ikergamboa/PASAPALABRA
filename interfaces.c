@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "interfaces.h"
 #include "bbdd.h"
+#include "diccionario.h"
 
 void primeraInterfaz(){
     int opcion;
