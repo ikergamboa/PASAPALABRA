@@ -59,7 +59,7 @@ int insertar_usuario(sqlite3 *db, const char *username, const char *password) {
 
     snprintf(sql, sizeof(sql),
              "INSERT OR REPLACE INTO Usuarios(Username, Password, Points) VALUES('%s', '%s', 0);",
-             user, password);
+             username, password);
 
     int rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
 
