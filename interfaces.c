@@ -38,23 +38,51 @@ void iniciarSesion() {
     char username[50];
     char password[50];
 
-    printf("\n---VENTANA DE INICIO DE SESION---\n");
+    printf("\n--- VENTANA DE INICIO DE SESION ---\n");
+
+    // Leer nombre de usuario
     printf("Nombre de usuario: ");
-    scanf("%s", username);
+    if (scanf("%49s", username) != 1) return;
 
     if (strcmp(username, "salir") == 0) exit(0);
-    if (strcmp(username, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
+    if (strcmp(username, "volver") == 0) {
+        primeraInterfaz(); // Permitir volver
+        return;
+    }
 
+    // Leer contraseña
     printf("Contrasenya: ");
-    scanf("%s", password);
+    if (scanf("%49s", password) != 1) return;
 
     if (strcmp(password, "salir") == 0) exit(0);
-    if (strcmp(password, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
+    if (strcmp(password, "volver") == 0) {
+        primeraInterfaz(); // Permitir volver
+        return;
+    }
 
-    //TODO Falta verificar si el usuario y la contraseña son correctos
-    //TODO Falta verificar si el usuario existe
+    // Abrir conexión a la base de datos
+    sqlite3 *db;
+    if (sqlite3_open("basedatos.db", &db) != SQLITE_OK) {
+        fprintf(stderr, "Error al abrir la base de datos: %s\n", sqlite3_errmsg(db));
+        return;
+    }
 
-    printf("¡Inicio de sesion exitoso!\n");
+    // Verificar si el usuario existe
+    if (!usuario_existe_seguro(db, username)) {
+        printf("El usuario no existe.\n");
+        sqlite3_close(db);
+        return;
+    }
+
+    // Verificar si la contraseña es correcta
+    if (verificar_contrasena(db, username, password)) {
+        printf("¡Inicio de sesión exitoso!\n");
+        // Aquí podrías continuar con tu flujo normal después de iniciar sesión.
+    } else {
+        printf("Contraseña incorrecta.\n");
+    }
+
+    sqlite3_close(db);
 }
 
 bool registerUser() {
