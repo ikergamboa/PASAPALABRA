@@ -99,24 +99,33 @@ bool registerUser() {
     if (scanf("%49s", username) != 1) return false;
     
     if (strcmp(username, "salir") == 0) exit(0);
-    if (strcmp(username, "volver") == 0) return false;
+    if (strcmp(username, "volver") == 0) {
+    primeraInterfaz();
+    return false;
+    }
 
     printf("Contrasenya: ");
     if (scanf("%49s", password) != 1) return false;
     
     if (strcmp(password, "salir") == 0) exit(0);
-    if (strcmp(password, "volver") == 0) return false;
+    if (strcmp(password, "volver") == 0) {
+    primeraInterfaz();
+    return false;
+    }
 
     printf("Confirmar contrasenya: ");
     if (scanf("%49s", confirmPassword) != 1) return false;
     
     if (strcmp(confirmPassword, "salir") == 0) exit(0);
-    if (strcmp(confirmPassword, "volver") == 0) return false;
+    if (strcmp(confirmPassword, "volver") == 0) {
+    primeraInterfaz();
+    return false;
+    }
 
     // 2. Validaciones
     if (strcmp(password, confirmPassword) != 0) {
         printf("Las contrasenyas no coinciden.\n");
-        registerUser();
+        primeraInterfaz();
         return false;
     }
 
