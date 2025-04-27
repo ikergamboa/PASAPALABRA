@@ -144,16 +144,19 @@ void roscoUnJugador() {
     int total_letras = sizeof(letras) / sizeof(letras[0]);
     int i = 0;
 
+    DiccionarioJuego dict = crearDiccionarioJuego();
+
+
     printf("\n---VENTANA UN JUGADOR---\n\n");
     
-    printf("  U  V  X  Y  Z  A  B  C  D\n");
-    printf("  T                       E\n");
-    printf("  S     ¡Pasapalabra!     F\n");
-    printf("          -------\n");
-    printf("  R     |  JUGAR  |       G\n");
-    printf("          -------\n");
+    printf("  V   X   Y   Z   A   B   C\n");
+    printf("  U                       D\n");
+    printf("  T     ¡Pasapalabra!     E\n");
+    printf("          -------          \n");
+    printf("  S     |  JUGAR  |       F\n");
+    printf("  R       -------         G\n");
     printf("  Q                       H\n");
-    printf("\nP  O  Ñ  N   M    L  J  I\n");
+    printf("  P   O   N   M   L   J   I\n");
 
     printf("\nEscribe \"JUGAR\" para comenzar: ");
     scanf("%s", input);

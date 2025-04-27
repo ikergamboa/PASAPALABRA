@@ -8,7 +8,8 @@
 
 int main(void) {
 
-    primeraInterfaz();
+    //primeraInterfaz();
+    roscoUnJugador();
 
     leerCSV("palabras.csv");
     DiccionarioJuego dict = crearDiccionarioJuego();
