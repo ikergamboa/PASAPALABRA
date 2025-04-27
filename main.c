@@ -11,6 +11,7 @@ typedef struct {
   char letra;
   char palabra[50];
   char definicion[256];
+  int status; // 0 = no respondida, 1 = correcta, 2 = incorrecta
 } Entrada;
 
 typedef struct {
