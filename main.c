@@ -8,13 +8,14 @@
 
 int main(void) {
 
-    //primeraInterfaz();
-    roscoUnJugador();
+    primeraInterfaz();
+    //roscoUnJugador();
+    //rankingGlobal();
 
     leerCSV("palabras.csv");
     DiccionarioJuego dict = crearDiccionarioJuego();
 
-    imprimirDiccionarioJuego(dict);
+    //imprimirDiccionarioJuego(dict);
 
     return 0;
 }

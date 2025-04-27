@@ -184,16 +184,15 @@ void roscoUnJugador() {
 
 }
 
-
 void rankingGlobal() {
-    printf("\n---RANKING GLOBAL---\n");
+    sqlite3 *db;
+    int rc = sqlite3_open("basedatos.db", &db);
 
-    int count = 0;
-    while(count < 50){
-        printf("Usuario %d:\n", count);
-        count++;
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Error al abrir la BD: %s\n", sqlite3_errmsg(db));
+        return;
     }
 
-    printf("Ranking global no implementado.\n");
+    mostrarRanking(db);
+    sqlite3_close(db);
 }
-
