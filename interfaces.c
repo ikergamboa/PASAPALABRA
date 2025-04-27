@@ -146,12 +146,12 @@ void roscoUnJugador() {
     printf("\n---VENTANA UN JUGADOR---\n\n");
     
     printf("    U V X Y Z A B C D\n");
-    printf("    T           E\n");
-    printf("    S     ¡Pasapalabra!     F\n");
+    printf("   T                 E\n");
+    printf("  S     ¡Pasapalabra!  F\n");
     printf("          -------\n");
-    printf("    R     |  JUGAR  |     G\n");
+    printf("  R     |  JUGAR  |    G\n");
     printf("          -------\n");
-    printf("    Q           H\n");
+    printf("   Q                  H\n");
     printf("\n    P O Ñ N M L J I\n");
 
     printf("\nEscribe \"JUGAR\" para comenzar: ");
