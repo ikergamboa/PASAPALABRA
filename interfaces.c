@@ -110,7 +110,7 @@ bool registerUser() {
         goto cleanup;
     }
 
-    if (insertar_usuario(db, username, password) == SQLITE_OK) {
+    if (insertar_usuario(db, username, password) == SQLITE_DONE) {
         printf("Registro exitoso\n");
         exito = true;
     } else {
