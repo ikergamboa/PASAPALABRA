@@ -1,8 +1,11 @@
 #ifndef FLOGIN_H
 #define FLOGIN_H
 
+#include <stdio.h>
+#include <stdbool.h>
+
 void iniciarSesion();
-void registerUser();
+bool registerUser();
 void primeraInterfaz();
 void ventanaPrincipal();
 void roscoUnJugador();

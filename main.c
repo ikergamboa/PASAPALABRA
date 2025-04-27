@@ -100,6 +100,8 @@ DiccionarioJuego crearDiccionarioJuego() {
 
 int main(void) {
 
+      primeraInterfaz();
+
     leerCSV("palabras.csv");
     DiccionarioJuego juego = crearDiccionarioJuego();
 
@@ -126,7 +128,6 @@ int main(void) {
     }
 
 
-    primeraInterfaz();
 
     return 0;
 }
