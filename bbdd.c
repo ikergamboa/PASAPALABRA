@@ -67,3 +67,27 @@ bool usuario_existe_seguro(sqlite3 *db, const char *usuario) {
     sqlite3_finalize(stmt);
     return existe;
 }
+
+int mostrarRanking(sqlite3 *db) {
+  sqlite3_stmt *stmt;
+  const char *sql = "SELECT Username, Points FROM Usuarios ORDER BY Points DESC LIMIT 10;";
+  int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
+
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Error al preparar consulta: %s\n", sqlite3_errmsg(db));
+        return rc;
+    }
+
+    printf("\n--- RANKING ---\n");
+    printf("Usuario\t\tPuntos\n");
+    printf("-------------------\n");
+
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        const char *username = (const char *)sqlite3_column_text(stmt, 0);
+        int points = sqlite3_column_int(stmt, 1);
+        printf("%s\t\t%d\n", username, points);
+    }
+
+    sqlite3_finalize(stmt);
+    return SQLITE_OK;
+}
