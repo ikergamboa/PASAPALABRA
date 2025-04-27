@@ -20,7 +20,7 @@ typedef struct {
     int totalPreguntas;
 } DiccionarioJuego; // Aquí guardamos las palabras que se utilizarán en el juego.
 
-Almacen almacen[25]; // Almacen global para guardar las palabras por letra.
+Almacen almacen[30]; // Almacen global para guardar las palabras por letra.
 
 int buscar_indice_letra(char letra);
 void crearAlmacenPorLetra(char letra, const char *palabra, const char *definicion);
