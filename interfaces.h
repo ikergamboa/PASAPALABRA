@@ -5,7 +5,7 @@ void iniciarSesion();
 void registerUser();
 void primeraInterfaz();
 void ventanaPrincipal();
-
+void roscoUnJugador();
 void rankingGlobal();
 
 #endif //FLOGIN_H

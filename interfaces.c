@@ -137,6 +137,35 @@ void ventanaPrincipal(){
     }
 }
 
+void roscoUnJugador() {
+
+    char input[20];
+
+    printf("\n---VENTANA UN JUGADOR---\n\n");
+    
+    printf("    U V X Y Z A B C D\n");
+    printf("    T           E\n");
+    printf("    S     ¡Pasapalabra!     F\n");
+    printf("          -------\n");
+    printf("    R     |  JUGAR  |     G\n");
+    printf("          -------\n");
+    printf("    Q           H\n");
+    printf("\n    P O Ñ N M L J I\n");
+
+    printf("\nEscribe \"JUGAR\" para comenzar: ");
+    scanf("%s", input);
+
+    if (strcmp(input, "JUGAR") == 0) {
+        printf("\n¡Correcto! Vamos a la letra A.\n");
+        
+    } else {
+        printf("\nNo escribiste \"JUGAR\". Intenta de nuevo.\n");
+    }
+     
+    return 0;
+}
+
+
 void rankingGlobal() {
     printf("\n---RANKING GLOBAL---\n");
 
@@ -148,3 +177,4 @@ void rankingGlobal() {
 
     printf("Ranking global no implementado.\n");
 }
+

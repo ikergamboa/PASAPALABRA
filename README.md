@@ -20,4 +20,3 @@ digital.
 
 Este proyecto ha sido desarrollado por Juan Pablo Comella, Iker Gamboa, Jose Maria González e Iñigo Zubiaguirre,
 un grupo de estudiantes de la Universidad de Deusto para la asignatura de Programación IV.
-
