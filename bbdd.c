@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <sqlite3.h>
 #include <stdbool.h>
+#include "bbdd.h"
 
-// Declaración anticipada de funciones
-int callback(void *data, int argc, char **argv, char **azColName);
-int insertar_usuario(sqlite3 *db, const char *usuario, const char *contrasena);
-bool crear_tabla_usuarios(sqlite3 *db);
 
 int main(int argc, char* argv[]) {
     sqlite3 *db;
@@ -37,40 +34,43 @@ int main(int argc, char* argv[]) {
 bool crear_tabla_usuarios(sqlite3 *db) {
     const char *sql = 
         "CREATE TABLE IF NOT EXISTS Usuarios("
-        "Usuario TEXT PRIMARY KEY, "
-        "Contraseña TEXT NOT NULL, "
-        "FechaCreacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
-    
+        "Username TEXT PRIMARY KEY, "
+        "Password TEXT NOT NULL, "
+        "FechaCreacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP, "
+        "Points INTEGER DEFAULT 0);";
+
     char *err_msg = 0;
     int rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
-    
+
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Error al crear tabla: %s\n", err_msg);
         sqlite3_free(err_msg);
         return false;
     }
-    
+
     return true;
 }
 
+
 // Función para insertar usuarios
-int insertar_usuario(sqlite3 *db, const char *usuario, const char *contrasena) {
+int insertar_usuario(sqlite3 *db, const char *username, const char *password) {
     char *err_msg = 0;
-    char sql[256];
-    
-    snprintf(sql, sizeof(sql), 
-             "INSERT OR REPLACE INTO Usuarios(Usuario, Contraseña) VALUES('%s', '%s');",
-             usuario, contrasena);
-    
+    char sql[512];
+
+    snprintf(sql, sizeof(sql),
+             "INSERT OR REPLACE INTO Usuarios(Username, Password, Points) VALUES('%s', '%s', 0);",
+             user, password);
+
     int rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
-    
+
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Error al insertar: %s\n", err_msg);
         sqlite3_free(err_msg);
     }
-    
+
     return rc;
 }
+
 
 // Función para mirar a ver si los nombres de usuario ya existen en la tabla
 bool usuario_existe_seguro(sqlite3 *db, const char *usuario) {
