@@ -57,59 +57,69 @@ void iniciarSesion() {
     printf("¡Inicio de sesion exitoso!\n");
 }
 
-void registerUser() {
+bool registerUser() {
     char username[50];
     char password[50];
     char confirmPassword[50];
 
     printf("\n---VENTANA DE REGISTRO---\n");
+    
+    // 1. Obtener inputs
     printf("Nombre de usuario: ");
-    scanf("%s", username);
-
-    if (strcmp(username, "salir") == 0) exit(0); // Permitir salir
-    if (strcmp(username, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
+    if (scanf("%49s", username) != 1) return false;
+    
+    if (strcmp(username, "salir") == 0) exit(0);
+    if (strcmp(username, "volver") == 0) return false;
 
     printf("Contrasenya: ");
-    scanf("%s", password);
-
-    if (strcmp(password, "salir") == 0) exit(0); // Permitir salir
-    if (strcmp(password, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
+    if (scanf("%49s", password) != 1) return false;
+    
+    if (strcmp(password, "salir") == 0) exit(0);
+    if (strcmp(password, "volver") == 0) return false;
 
     printf("Confirmar contrasenya: ");
-    scanf("%s", confirmPassword);
+    if (scanf("%49s", confirmPassword) != 1) return false;
+    
+    if (strcmp(confirmPassword, "salir") == 0) exit(0);
+    if (strcmp(confirmPassword, "volver") == 0) return false;
 
-    if (strcmp(confirmPassword, "salir") == 0) exit(0); // Permitir salir
-    if (strcmp(confirmPassword, "volver") == 0) primeraInterfaz(); // Permitir volver a la ventana de inicio
-
+    // 2. Validaciones
     if (strcmp(password, confirmPassword) != 0) {
-        printf("Las contrasenyas no coinciden. Intenta de nuevo.\n");
-        registerUser();
-        return;
+        printf("Las contrasenyas no coinciden.\n");
+        return false;
     }
 
-    sqlite3 *db;  // Puntero a la conexión.
-    int rc;       // Código de retorno.
-
-    // 1. Abrir la conexión a la BD (crea el archivo si no existe).
-    rc = sqlite3_open("basedatos.db", &db);
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Error al abrir la BD: %s\n", sqlite3_errmsg(db));
+    // 3. Operaciones con BD
+    sqlite3 *db;
+    if (sqlite3_open("basedatos.db", &db) != SQLITE_OK) {
+        fprintf(stderr, "Error al abrir BD: %s\n", sqlite3_errmsg(db));
+        return false;
     }
 
-    // 2. Llamar a la función para crear la tabla.
+    bool exito = false;
+    
+    // Verificar creación de tabla
     if (!crear_tabla_usuarios(db)) {
-        fprintf(stderr, "Error al crear la tabla.\n");
-        sqlite3_close(db);  // Cerrar conexión antes de salir.
+        fprintf(stderr, "Error crítico: no se pudo crear la tabla.\n");
+        goto cleanup;
     }
 
-    // 3. Cerrar la conexión cuando ya no se necesite.
+
+    if (usuario_existe_seguro(db, username)) {
+        printf("El usuario ya existe.\n");
+        goto cleanup;
+    }
+
+    if (insertar_usuario(db, username, password) == SQLITE_OK) {
+        printf("Registro exitoso\n");
+        exito = true;
+    } else {
+        fprintf(stderr, "Error al registrar usuario *****.\n");
+    }
+
+cleanup:
     sqlite3_close(db);
-
-    printf("Registro exitoso\n");
-
-    //TODO Falta guardar el usuario y la contraseña en un archivo o base de datos
-    //TODO Falta verificar si el usuario ya existe
-
+    return exito;
 }
 
 void ventanaPrincipal(){
