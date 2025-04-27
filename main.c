@@ -100,7 +100,8 @@ DiccionarioJuego crearDiccionarioJuego() {
 
 int main(void) {
 
-      primeraInterfaz();
+    //primeraInterfaz();
+    roscoUnJugador();
 
     leerCSV("palabras.csv");
     DiccionarioJuego juego = crearDiccionarioJuego();

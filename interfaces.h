@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 void iniciarSesion();
-bool registerUser();
+void registerUser();
 void primeraInterfaz();
 void ventanaPrincipal();
 void roscoUnJugador();
