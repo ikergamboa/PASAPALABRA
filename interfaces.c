@@ -124,11 +124,11 @@ void ventanaPrincipal(){
 
         switch (opcion) {
         case 1:
-            return;
+            roscoUnJugador();
         case 2:
             return;
         case 3:
-            return;
+            rankingGlobal();
         case 4:
           exit(0);
         default:
