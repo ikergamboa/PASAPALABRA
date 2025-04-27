@@ -138,8 +138,10 @@ void ventanaPrincipal(){
 }
 
 void roscoUnJugador() {
-
     char input[20];
+    char letras[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z'};
+    int total_letras = sizeof(letras) / sizeof(letras[0]);
+    int i = 0;
 
     printf("\n---VENTANA UN JUGADOR---\n\n");
     
@@ -156,13 +158,26 @@ void roscoUnJugador() {
     scanf("%s", input);
 
     if (strcmp(input, "JUGAR") == 0) {
-        printf("\n¡Correcto! Vamos a la letra A.\n");
-        
+        printf("\n¡Correcto! Empezamos en la letra A.\n");
+
+        while (i < total_letras) {
+            printf("\nLetra %c: Escribe tu respuesta (o escribe \"pasar\" para saltar): ", letras[i]);
+            scanf("%s", input);
+
+            if (strcmp(input, "pasar") == 0) {
+                printf("Saltando la letra %c...\n", letras[i]);
+                i++; // Pasa a la siguiente letra
+            } else {
+                printf("Respuesta registrada para la letra %c.\n", letras[i]);
+                i++; // También avanza
+            }
+        }
+
+        printf("\n¡Has terminado el rosco!\n");
     } else {
-        printf("\nNo escribiste \"JUGAR\". Intenta de nuevo.\n");
+        printf("\nNo escribiste \"JUGAR\". Terminando programa.\n");
     }
-     
-    return 0;
+
 }
 
 
