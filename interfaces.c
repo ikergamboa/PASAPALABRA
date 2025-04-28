@@ -146,7 +146,7 @@ bool registerUser() {
         printf("|");
         printf("\n---------------------------\n");
         printf("Las contrasenyas no coinciden.\n");
-        goto cleanup;
+        registerUser();
     }
 
     // 3. Operaciones con BD
