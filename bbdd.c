@@ -115,15 +115,16 @@ int mostrarRanking(sqlite3 *db) {
         return rc;
     }
 
-    printf("\n--- RANKING ---\n");
-    printf("Usuario\t\tPuntos\n");
-    printf("-------------------\n");
+    printf("\n----------- RANKING ------------\n");
+    printf("| Usuario\t|\tPuntos |\n");
+    printf("--------------------------------\n");
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         const char *username = (const char *)sqlite3_column_text(stmt, 0);
         int points = sqlite3_column_int(stmt, 1);
-        printf("%s\t\t%d\n", username, points);
+        printf("| %-14s| %10d   |\n", username, points);
     }
+    printf("--------------------------------\n");
 
     sqlite3_finalize(stmt);
     return SQLITE_OK;

@@ -9,17 +9,25 @@ void primeraInterfaz(){
     int opcion;
 
     while (1) {
-        printf("-------VENTANA DE INICIO-------\n");
+        printf("\n------ VENTANA DE INICIO ------\n");
         printf("|                             |\n");
         printf("|  Bienvenido a Pasapalabra   |\n");
         printf("|                             |\n");
         printf("|      1. Iniciar sesion      |\n");
         printf("|      2. Registrarse         |\n");
+        printf("|      3. Salir               |\n");
         printf("|                             |\n");
         printf("-------------------------------\n");
         printf("\n");
         printf("Elige una opcion: ");
-        scanf("%d", &opcion);
+    
+        if (scanf("%d", &opcion) != 1) {
+        printf("Entrada invalida. Por favor, elige una opcion valida (1,2 o 3).\n");
+        // Limpiar el buffer
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+        continue; // Volver a mostrar el menú
+        }
 
         switch (opcion) {
         case 1:
@@ -28,8 +36,11 @@ void primeraInterfaz(){
         case 2:
             registerUser();
             return;
+        case 3:
+            exit(0);
         default:
-            printf("Opción inválida. Intenta de nuevo.\n");
+            printf("Entrada invalida. Por favor, elige una opcion valida (1,2 o 3).\n");
+            break;
         }
     }
 }
@@ -41,7 +52,8 @@ void iniciarSesion() {
     printf("\n--- VENTANA DE INICIO DE SESION ---\n");
 
     // Leer nombre de usuario
-    printf("Nombre de usuario: ");
+    printf("|\n");
+    printf("|     Nombre de usuario: ");
     if (scanf("%49s", username) != 1) return;
 
     if (strcmp(username, "salir") == 0) exit(0);
@@ -51,7 +63,7 @@ void iniciarSesion() {
     }
 
     // Leer contraseña
-    printf("Contrasenya: ");
+    printf("|     Contrasenya: ");
     if (scanf("%49s", password) != 1) return;
 
     if (strcmp(password, "salir") == 0) exit(0);
@@ -69,7 +81,9 @@ void iniciarSesion() {
 
     // Verificar si el usuario existe
     if (!usuario_existe_seguro(db, username)) {
-        printf("El usuario o la contraseña son incorrectos.\n");
+        printf("|\n");
+        printf("-----------------------------------\n");
+        printf("El usuario o la contrasenya son incorrectos.\n");
         sqlite3_close(db);
         iniciarSesion();
         return;
@@ -77,10 +91,14 @@ void iniciarSesion() {
 
     // Verificar si la contraseña es correcta
     if (verificar_contrasena(db, username, password)) {
-        printf("¡Inicio de sesión exitoso!\n");
+        printf("|\n");
+        printf("-----------------------------------\n");
+        printf("Inicio de sesion exitoso\n");
         ventanaPrincipal();
     } else {
-        printf("El usuario o la contraseña son incorrectos.\n");
+        printf("|\n");
+        printf("-----------------------------------\n");
+        printf("El usuario o la contrasenya son incorrectos.\n");
         iniciarSesion();
     }
 
@@ -92,10 +110,11 @@ bool registerUser() {
     char password[50];
     char confirmPassword[50];
 
-    printf("\n---VENTANA DE REGISTRO---\n");
+    printf("\n--- VENTANA DE REGISTRO ---\n");
     
     // 1. Obtener inputs
-    printf("Nombre de usuario: ");
+    printf("|\n");
+    printf("|   Nombre de usuario: ");
     if (scanf("%49s", username) != 1) return false;
     
     if (strcmp(username, "salir") == 0) exit(0);
@@ -104,7 +123,7 @@ bool registerUser() {
     return false;
     }
 
-    printf("Contrasenya: ");
+    printf("|   Contrasenya: ");
     if (scanf("%49s", password) != 1) return false;
     
     if (strcmp(password, "salir") == 0) exit(0);
@@ -113,7 +132,7 @@ bool registerUser() {
     return false;
     }
 
-    printf("Confirmar contrasenya: ");
+    printf("|   Confirmar contrasenya: ");
     if (scanf("%49s", confirmPassword) != 1) return false;
     
     if (strcmp(confirmPassword, "salir") == 0) exit(0);
@@ -124,9 +143,10 @@ bool registerUser() {
 
     // 2. Validaciones
     if (strcmp(password, confirmPassword) != 0) {
+        printf("|");
+        printf("\n---------------------------\n");
         printf("Las contrasenyas no coinciden.\n");
-        primeraInterfaz();
-        return false;
+        goto cleanup;
     }
 
     // 3. Operaciones con BD
@@ -137,24 +157,21 @@ bool registerUser() {
     }
 
     bool exito = false;
-    
-    // Verificar creación de tabla
-    if (!crear_tabla_usuarios(db)) {
-        fprintf(stderr, "Error crítico: no se pudo crear la tabla.\n");
-        goto cleanup;
-    }
-
 
     if (usuario_existe_seguro(db, username)) {
+        printf("|");
+        printf("\n---------------------------\n");
         printf("El usuario ya existe.\n");
         goto cleanup;
     }
 
     if (insertar_usuario(db, username, password) == SQLITE_DONE) {
+        printf("\n---------------------------\n");
         printf("Registro exitoso\n");
         exito = true;
         ventanaPrincipal();
     } else {
+        printf("\n---------------------------\n");
         fprintf(stderr, "Error al registrar usuario.\n");
     }
 
@@ -166,28 +183,45 @@ cleanup:
 
 void ventanaPrincipal(){
     int opcion;
+        while(1){
+        printf("\n--------- VENTANA PRINCIPAL ---------\n");
+        printf("|\n");
+        printf("|  1. Un jugador\n");
+        printf("|  2. Multijugador\n");
+        printf("|  3. Ranking Global\n");
+        printf("|  4. Volver a la ventana de inicio\n");
+        printf("|  5. Salir\n");
+        printf("|\n");
+        printf("-------------------------------------");
+        printf("\nElige una opcion: ");
 
-    while (1) {
-        printf("\n---VENTANA PRINCIPAL---\n");
-        printf("1. Un jugador\n");
-        printf("2. Multijugador\n");
-        printf("3. Ranking Global\n");
-        printf("4. Salir\n");
-        scanf("%d", &opcion);
+        if (scanf("%d", &opcion) != 1) {
+        printf("Entrada invalida. Por favor, elige una opcion valida (1,2 o 3).\n");
+        // Limpiar el buffer
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+        continue; // Volver a mostrar el menú
+        }
 
         switch (opcion) {
         case 1:
             roscoUnJugador();
+            break;
         case 2:
             return;
         case 3:
             rankingGlobal();
+            break;
         case 4:
-          exit(0);
+            primeraInterfaz();
+            break;
+        case 5:
+            exit(0);
         default:
-            printf("Opción inválida. Intenta de nuevo.\n");
+            printf("Entrada invalida. Por favor, elige una opcion valida (1,2 o 3).\n");
+            break;
         }
-    }
+        }
 }
 
 void roscoUnJugador() {
@@ -204,10 +238,9 @@ void roscoUnJugador() {
     
     printf("  V   X   Y   Z   A   B   C\n");
     printf("  U                       D\n");
-    printf("  T     ¡Pasapalabra!     E\n");
-    printf("          -------          \n");
-    printf("  S     |  JUGAR  |       F\n");
-    printf("  R       -------         G\n");
+    printf("  T                       E\n");
+    printf("  S     Pasapalabra       F\n");
+    printf("  R                       G\n");
     printf("  Q                       H\n");
     printf("  P   O   N   M   L   J   I\n");
 
@@ -271,6 +304,14 @@ void rankingGlobal() {
         return;
     }
 
+    // Mostrar el ranking
     mostrarRanking(db);
+
     sqlite3_close(db);
+
+    // Esperar que el usuario presione ENTER antes de volver al menú
+    printf("\nPresiona ENTER para volver a la ventana principal...");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);  // Limpiar el buffer
+    getchar();  // Esperar que el usuario presione ENTER
 }
