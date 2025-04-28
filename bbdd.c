@@ -115,7 +115,7 @@ int mostrarRanking(sqlite3 *db) {
         return rc;
     }
 
-    printf("\n----------- RANKING ------------\n");
+    printf("\n------------ RANKING -----------\n");
     printf("| Usuario\t|\tPuntos |\n");
     printf("--------------------------------\n");
 
