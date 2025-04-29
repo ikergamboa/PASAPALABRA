@@ -10,5 +10,6 @@ void primeraInterfaz();
 void ventanaPrincipal();
 void roscoUnJugador();
 void rankingGlobal();
+void str_toupper(char *str); // function made by chatgpt
 
 #endif //FLOGIN_H
