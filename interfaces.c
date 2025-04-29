@@ -1,9 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "interfaces.h"
 #include "bbdd.h"
 #include "diccionario.h"
+
+void str_toupper(char *str) {
+    for(int i = 0; str[i]; i++) {
+        str[i] = toupper(str[i]);
+    }
+}
 
 void primeraInterfaz(){
     int opcion;
@@ -251,11 +258,15 @@ void roscoUnJugador() {
         printf("\nEscribe \"JUGAR\" para comenzar, \"salir\" para salir o \"volver\" para volver: ");
         scanf("%19s", input);
 
-        if (strcmp(input, "JUGAR") == 0) {
+        char upperInput[20];
+        strcpy(upperInput, input);
+        str_toupper(upperInput);
+
+        if (strcmp(upperInput, "JUGAR") == 0) {
             break; // Salir del bucle y empezar el juego
-        } else if (strcmp(input, "salir") == 0) {
+        } else if (strcmp(upperInput, "SALIR") == 0) {
             exit(0);
-        } else if (strcmp(input, "volver") == 0) {
+        } else if (strcmp(upperInput, "VOLVER") == 0) {
             ventanaPrincipal();
             return;
         } else {
@@ -290,13 +301,22 @@ void roscoUnJugador() {
         printf("\nEscribe tu respuesta: ");
         scanf("%19s", input);
 
-        if (strcmp(input, "pasar") == 0) {
+        char upperInput[20];
+        strcpy(upperInput, input);
+        str_toupper(upperInput);
+
+        if (strcmp(upperInput, "PASAR") == 0) {
             printf("Saltando la letra %c...\n", letras[i]);
             i++;
-        } else if (strcmp(input, "salir") == 0) {
+        } else if (strcmp(upperInput, "SALIR") == 0) {
             exit(0);
         } else {
-            if (strcmp(input, dict.almacen[indice].entradas[0].palabra) == 0) {
+
+          	char upperWord[50];
+            strcpy(upperWord, dict.almacen[indice].entradas[0].palabra);
+            str_toupper(upperWord);
+
+            if (strcmp(upperInput, upperWord) == 0) {
                 printf("Respuesta CORRECTA\n");
                 dict.almacen[indice].entradas[0].status = 1;
             } else {
