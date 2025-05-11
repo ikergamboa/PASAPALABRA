@@ -235,8 +235,10 @@ void roscoUnJugador() {
     char input[20];
     char letras[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z'};
     int total_letras = sizeof(letras) / sizeof(letras[0]);
-    int i = 0;
+	const char *current_letra = letras;
+    const char *end_letra = letras + sizeof(letras) / sizeof(letras[0]);
     int respuestasCorrectas = 0;
+	int preguntasRespondidas = 0;
 
     leerCSV("palabras.csv");
     DiccionarioJuego dict = crearDiccionarioJuego();
@@ -277,14 +279,14 @@ void roscoUnJugador() {
     printf("\nEmpezamos en la letra A.\n");
 
     // Bucle principal del rosco
-    while (respuestasCorrectas < total_letras) {
-        if (i >= total_letras) {
-            i = 0;
+    while (preguntasRespondidas < dict.totalPreguntas) {
+        if (current_letra >= end_letra) {
+            current_letra = letras;
         }
 
-        int indice = buscar_indice_letra(letras[i]);
+        int indice = buscar_indice_letra(*current_letra);
         if (dict.almacen[indice].entradas[0].status != 0) {
-            i++;
+            current_letra++;
             continue;
         }
 
@@ -296,7 +298,7 @@ void roscoUnJugador() {
         printf("   Q                       H   \n");
         printf("   P   O   N   M   L   J   I   \n");
 
-        printf("\nLetra %c:", letras[i]);
+        printf("\nLetra %c:", *current_letra);
         printf("\nDefinicion: %s", dict.almacen[indice].entradas[0].definicion);
         printf("\nEscribe tu respuesta: ");
         scanf("%19s", input);
@@ -306,8 +308,8 @@ void roscoUnJugador() {
         str_toupper(upperInput);
 
         if (strcmp(upperInput, "PASAR") == 0) {
-            printf("Saltando la letra %c...\n", letras[i]);
-            i++;
+            printf("Saltando la letra %c...\n", *current_letra);
+            current_letra++;
         } else if (strcmp(upperInput, "SALIR") == 0) {
             exit(0);
         } else {
@@ -319,16 +321,27 @@ void roscoUnJugador() {
             if (strcmp(upperInput, upperWord) == 0) {
                 printf("Respuesta CORRECTA\n");
                 dict.almacen[indice].entradas[0].status = 1;
+				respuestasCorrectas++;
+            } else if (strcmp(upperInput, "PASAPALABRA") == 0) {
+                printf("Pasapalabra!\n");
+                dict.almacen[indice].entradas[0].status = 0;
             } else {
                 printf("Respuesta INCORRECTA\n");
                 dict.almacen[indice].entradas[0].status = 2;
             }
-            respuestasCorrectas++;
-            i++;
+            preguntasRespondidas++;
+            current_letra++;
         }
     }
 
     printf("\n¡Has terminado el rosco!\n");
+	printf("Respuestas correctas: %d\n", respuestasCorrectas);
+
+	// Esperar que el usuario presione ENTER antes de volver al menú
+    printf("\nPresiona ENTER para volver a la ventana principal...");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);  // Limpiar el buffer
+    getchar();  // Esperar que el usuario presione ENTER
 }
 
 void rankingGlobal() {
