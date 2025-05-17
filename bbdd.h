@@ -11,5 +11,6 @@ bool verificar_contrasena(sqlite3 *db, const char *usuario, const char *contrase
 int insertar_usuario(sqlite3 *db, const char *usuario, const char *contrasena);
 bool crear_tabla_usuarios(sqlite3 *db);
 int mostrarRanking(sqlite3 *db);
+bool insertar_puntos_usuario(sqlite3 *db, const char *usuario, int puntos);
 
 #endif //BBDD_H

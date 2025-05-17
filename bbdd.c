@@ -129,3 +129,30 @@ int mostrarRanking(sqlite3 *db) {
     sqlite3_finalize(stmt);
     return SQLITE_OK;
 }
+
+// Función para añadir puntos a un usuario existente
+bool insertar_puntos_usuario(sqlite3 *db, const char *usuario, int puntos) {
+    sqlite3_stmt *stmt;
+    const char *sql = "UPDATE Usuarios SET Points = Points + ? WHERE Usuario = ?;";
+
+    // Preparar la consulta
+    if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
+        fprintf(stderr, "Error al preparar la consulta: %s\n", sqlite3_errmsg(db));
+        return false;
+    }
+
+    // Vincular parámetros: puntos y usuario
+    sqlite3_bind_int(stmt, 1, puntos);
+    sqlite3_bind_text(stmt, 2, usuario, -1, SQLITE_STATIC);
+
+    // Ejecutar
+    int rc = sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+
+    if (rc == SQLITE_DONE) {
+        return true;
+    } else {
+        fprintf(stderr, "Error al actualizar puntos: %s\n", sqlite3_errmsg(db));
+        return false;
+    }
+}
