@@ -332,6 +332,8 @@ void roscoUnJugador() {
             current_letra++;
         } else if (strcmp(upperInput, "SALIR") == 0) {
             exit(0);
+        } else if (strcmp(upperInput, "VOLVER") == 0){
+            ventanaPrincipal();
         } else {
 
           	char upperWord[50];
