@@ -352,12 +352,12 @@ void roscoUnJugador() {
         }
     }
 
-    printf("\n¡Has terminado el rosco!\n");
+    printf("\nHas terminado el rosco!\n");
     printf("Respuestas correctas: %d\n", respuestasCorrectas);
 
     // Sumar puntos
     if (insertar_puntos_usuario(db, usuarioLogueado, respuestasCorrectas*10)) {
-        printf("¡Se han sumado tus puntos al ranking!\n");
+        printf("Se han sumado tus puntos al ranking!\n");
     } else {
         printf("%s", usuarioLogueado);
         printf("Error al guardar tus puntos.\n");
