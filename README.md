@@ -24,7 +24,7 @@ En cuanto a las respuestas y preguntas del programa hay varias cosas a tener en 
 
 Funcionamiento:
 Una vez ejecutes el programa lo primero que vas a ver van a ser 3 opciones (Iniciar sesion, registrarse y salir). Una vez iniciado sesion
-se te abrirá un menú en el cual vas a poder elegir entre el modo individual, multijugador, ver el ranking, volver a la ventana de inicio o salir. Si eliges el modo de individual se te abrira un rosco y comenzaras con la letra A, si no sabes la respuesta escribes 'pasar' y se te dirigirá a la proxima letra, una vez respondidas todas las letras se te sumara tu puntuacion al ranking automaticamente. Ya finalizado se te dara la opcion de salir.
+se te abrirá un menú en el cual vas a poder elegir entre el modo individual, ver el ranking, volver a la ventana de inicio o salir. Si eliges el modo de individual se te abrira un rosco y comenzaras con la letra A, si no sabes la respuesta escribes 'pasar' y se te dirigirá a la proxima letra, una vez respondidas todas las letras se te sumara tu puntuacion al ranking automaticamente. Ya finalizado se te dara la opcion de salir.
 
 Este proyecto ha sido desarrollado por Juan Pablo Comella, Iker Gamboa, Jose Maria González e Iñigo Zubiaguirre,
 un grupo de estudiantes de la Universidad de Deusto para la asignatura de Programación IV.
