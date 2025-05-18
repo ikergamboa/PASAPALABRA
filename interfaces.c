@@ -211,16 +211,15 @@ void ventanaPrincipal(){
         printf("\n--------- VENTANA PRINCIPAL ---------\n");
         printf("|\n");
         printf("|  1. Un jugador\n");
-        printf("|  2. Multijugador\n");
-        printf("|  3. Ranking Global\n");
-        printf("|  4. Volver a la ventana de inicio\n");
-        printf("|  5. Salir\n");
+        printf("|  2. Ranking Global\n");
+        printf("|  3. Volver a la ventana de inicio\n");
+        printf("|  4. Salir\n");
         printf("|\n");
         printf("-------------------------------------");
         printf("\nElige una opcion: ");
 
         if (scanf("%d", &opcion) != 1) {
-            printf("Entrada invalida. Por favor, elige una opcion valida (1,2,3,4 o 5).\n");
+            printf("Entrada invalida. Por favor, elige una opcion valida (1,2,3 o 4).\n");
             int c;
             while ((c = getchar()) != '\n' && c != EOF);
             continue;
@@ -231,16 +230,13 @@ void ventanaPrincipal(){
             roscoUnJugador(db, usuarioLogueado);
             break;
         case 2:
-            // Implementa la función para multijugador cuando esté lista
-            break;
-        case 3:
             rankingGlobal(db);
             break;
-        case 4:
+        case 3:
             sqlite3_close(db);  // Cerrar BD al volver al inicio (opcional)
             primeraInterfaz();
             return;
-        case 5:
+        case 4:
             sqlite3_close(db);  // Cerrar BD al salir
             exit(0);
         default:
