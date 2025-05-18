@@ -5,6 +5,8 @@
 #include <time.h>
 #include "diccionario.h"
 
+Almacen almacen[30];
+
 // FUNCION PARA IDENTIFICAR LA LETRA
 int buscar_indice_letra(char letra) {
     letra = toupper(letra);
@@ -19,7 +21,7 @@ void crearAlmacenPorLetra(char letra, const char *palabra, const char *definicio
   letra = toupper(letra);
   int indice = buscar_indice_letra(letra);
 
-  if(indice != -1 && almacen[indice].size < 26) {
+  if(indice != -1 && almacen[indice].size < 10) {
     Entrada *nuevaEntrada = &almacen[indice].entradas[almacen[indice].size];
     nuevaEntrada->letra = letra;
     strncpy(nuevaEntrada->palabra, palabra, 49); // 49 para dejar espacio para el \0
