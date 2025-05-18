@@ -21,17 +21,17 @@ B;Bendicion;Expresion de deseo de bienestar.
 C;Cielo;Espacio donde estan los astros visto desde la Tierra.  
 C;Coraje;Valor ante situaciones dificiles.  
 C;Cristal;Material solido transparente y fragil.  
-C;Cumbre;Punto más alto de una montanya.  
+C;Cumbre;Punto mas alto de una montanya.  
 C;Cesped;Hierba cortada y cuidada en jardines.  
 C;Cancion;Composicion musical con letra.  
 C;Caricia;Gesto afectuoso con las manos.  
-C;Cascada;Caída violenta de agua en un rio.  
+C;Cascada;Caida violenta de agua en un rio.  
 C;Castillo;Edificio fortificado medieval.  
 C;Colibri;Ave pequenya de vuelo rapido y zumbador.  
 D;Diamante;Mineral precioso de gran dureza y brillo.  
 D;Deseo;Anhelo intenso de algo.  
 D;Delfin;Mamifero marino inteligente y jugueton.  
-D;Dignidad;Valor intrínseco de todo ser humano.  
+D;Dignidad;Valor intrinseco de todo ser humano.  
 D;Dragon;Criatura mitologica con forma de reptil alado.  
 D;Duda;Incertidumbre ante una decision.  
 D;Dulzura;Cualidad de lo que es agradable al gusto o trato.  
@@ -49,15 +49,15 @@ E;Empatia;Capacidad de entender los sentimientos ajenos.
 E;Enigma;Misterio dificil de descifrar.
 E;Escarcha;Rocio de la noche congelado.
 F;Faro;Torre con luz para guiar barcos.  
-F;Felicidad;Estado de Animo de satisfaccion plena.  
+F;Felicidad;Estado de animo de satisfaccion plena.  
 F;Flor;Parte de la planta con petalos y aroma.  
 F;Fuego;Reaccion quimica que produce luz y calor.  
 F;Fortaleza;Fuerza fisica o moral resistente.  
 F;Frescura;Cualidad de lo reciente o no alterado.  
-F;Frontera;Limite entre territorios o países.  
+F;Frontera;Limite entre territorios o paises.  
 F;Fabula;Historia ficticia con moraleja.  
 F;Fe;Creencia en algo sin prueba empirica.  
-F;Fenix;Ave mitológica que renace de sus cenizas.  
+F;Fenix;Ave mitologica que renace de sus cenizas.  
 G;Girasol;Planta que gira hacia el sol.  
 G;Generosidad;Calidad de compartir sin egoismo.  
 G;Gloria;Fama u honor por logros destacados.  
@@ -75,7 +75,7 @@ H;Hogar;Lugar donde se vive con la familia.
 H;Horizonte;Linea aparente entre cielo y tierra.  
 H;Humedad;Presencia de agua en el aire o superficies.  
 H;Hilo;Fibra delgada para coser o tejer.  
-H;Hábito;Costumbre adquirida por repeticion.  
+H;Habito;Costumbre adquirida por repeticion.  
 H;Hazanya;Accion dificil y admirable.  
 H;Harmonia;Equilibrio agradable entre elementos.  
 I;Ilusion;Esperanza o percepcion enganyosa.  
@@ -87,8 +87,8 @@ I;Isla;Porcion de tierra rodeada de agua.
 I;Inspiracion;Ideas creativas repentinas.  
 I;Igualdad;Principio de no discriminacion.  
 I;Impetu;Fuerza o energia intensa.  
-I;Invento;Creación de algo nuevo.  
-J;Jubilo;Alegría intensa y expresiva.  
+I;Invento;Creacion de algo nuevo.  
+J;Jubilo;Alegria intensa y expresiva.  
 J;Jardin;Espacio con plantas cultivadas.  
 J;Joya;Objeto precioso de adorno.  
 J;Justicia;Principio de dar a cada uno lo que merece.  
@@ -103,27 +103,27 @@ L;Lluvia;Precipitacion de gotas de agua.
 L;Luz;Radiacion electromagnetica visible.  
 L;Lago;Cuerpo de agua rodeado de tierra.  
 L;Lealtad;Fidelidad a personas o principios.  
-L;Lenguaje;Sistema de comunicación verbal.  
+L;Lenguaje;Sistema de comunicacion verbal.  
 L;Lobo;Mamifero carnivoro similar al perro.  
 L;Lagrima;Gotas de liquido que segregan los ojos.  
-L;Lider;Persona que guía a un grupo.  
+L;Lider;Persona que guia a un grupo.  
 L;Laberinto;Lugar con caminos complejos para perderse.  
 M;Mar;Gran masa de agua salada.  
-M;Montaña;Elevación natural del terreno.  
+M;Montanya;Elevacion natural del terreno.  
 M;Musica;Arte de combinar sonidos armonicamente.  
 M;Misterio;Algo dificil de entender o explicar.  
-M;Melodía;Sucesión de sonidos musicales agradables.  
+M;Melodia;Sucesion de sonidos musicales agradables.  
 M;Milagro;Evento sobrenatural positivo.  
 M;Maestro;Persona que ensenya con autoridad.  
-M;Marea;Movimiento periódico del agua del mar.  
-M;Miel;Líquido dulce producido por abejas.  
+M;Marea;Movimiento periodico del agua del mar.  
+M;Miel;Liquido dulce producido por abejas.  
 M;Mascara;Objeto para cubrir el rostro.  
 N;Naturaleza;Conjunto de todo lo existente en el universo fisico.  
 N;Nube;Masa de vapor de agua en el cielo.  
 N;Nobleza;Cualidad de actuar con honor.  
 N;Nido;Estructura hecha por aves para poner huevos.  
 N;Nectar;Liquido dulce de las flores.  
-N;Nave;Embarcación o aeronave.  
+N;Nave;Embarcacion o aeronave.  
 N;Nacion;Comunidad humana con territorio propio.  
 N;Nostalgia;Anyoranza del pasado.  
 N;Nudo;Atadura de cuerdas o lazo.  
@@ -131,7 +131,7 @@ N;Nectar;Liquido dulce de las flores.
 O;Oceano;Gran extension de agua salada.  
 O;Oportunidad;Circunstancia favorable.  
 O;Orquidea;Planta de flores vistosas.  
-O;Otonyo;Estación entre verano e invierno.  
+O;Otonyo;Estacion entre verano e invierno.  
 O;Oasis;Zona fertil en el desierto.  
 O;Obediencia;Cumplimiento de ordenes.  
 O;Olimpo;Montanya mitologica hogar de los dioses griegos.  
@@ -143,27 +143,27 @@ P;Playa;Orilla del mar con arena o piedras.
 P;Pensamiento;Proceso mental de razonar.  
 P;Palacio;Residencia lujosa y grande.  
 P;Paciencia;Capacidad de esperar con calma.  
-P;Paisaje;Extensión de terreno vista desde un lugar.  
+P;Paisaje;Extension de terreno vista desde un lugar.  
 P;Petalo;Parte coloreada de la flor.  
 P;Prisma;Objeto geometrico que refracta la luz.  
 P;Pueblo;Comunidad humana pequenya.  
-P;Puro;Que no está mezclado con otra cosa.  
+P;Puro;Que no esta mezclado con otra cosa.  
 Q;Quetzal;Ave tropical de plumaje colorido (simbolo de Guatemala).  
 Q;Queque;Pastel dulce horneado (anglicismo de "cake").  
 Q;Queso;Producto lacteo solido obtenido de la leche cuajada.  
 Q;Quimera;Ser mitologico hibrido o idea ilusoria.  
-Q;Quórum;Numero minimo de asistentes para validar una reunion (anglicismo).  
+Q;Quorum;Numero minimo de asistentes para validar una reunion (anglicismo).  
 Q;Quark;Tipo de particula elemental en fisica (anglicismo).  
-Q;Quiosco;Pequeña estructura para vender periodicos o refrescos.  
+Q;Quiosco;Pequenya estructura para vender periodicos o refrescos.  
 Q;Quilla;Parte inferior del casco de un barco.  
 Q;Quinina;Compuesto usado para tratar la malaria.  
 Q;Quiste;Bolsa anormal en tejidos del cuerpo.  
-R;Rayo;Descarga electrica en la atmósfera.  
+R;Rayo;Descarga electrica en la atmosfera.  
 R;Risa;Expresion de alegria con sonidos.  
 R;Rio;Corriente natural de agua.  
 R;Respeto;Consideracion hacia algo o alguien.  
-R;Rosa;Flor aromática con espinas.  
-R;Rebeldia;Actitud de oposición a la autoridad.  
+R;Rosa;Flor aromatica con espinas.  
+R;Rebeldia;Actitud de oposicion a la autoridad.  
 R;Refugio;Lugar para protegerse del peligro.  
 R;Relampago;Destello luminoso durante una tormenta.  
 R;Ruisenyor;Ave conocida por su canto melodioso.  
@@ -175,21 +175,21 @@ S;Sombra;Ausencia de luz por un objeto opaco.
 S;Serenidad;Estado de calma y tranquilidad.  
 S;Sinfonia;Composicion musical para orquesta.  
 S;Silencio;Ausencia de ruido.  
-S;Sincero;Que actua sin engaños.  
-S;Sorpresa;Emoción causada por algo inesperado.  
+S;Sincero;Que actua sin enganyos.  
+S;Sorpresa;Emocion causada por algo inesperado.  
 S;Simbolo;Representacion abstracta de una idea.  
 T;Tiempo;Duracion de los eventos.  
 T;Tierra;Planeta donde vivimos.  
 T;Tormenta;Fenomeno meteorologico con lluvia y viento.  
 T;Ternura;Sentimiento de afecto suave.  
 T;Templo;Edificio para practicas religiosas.  
-T;Tesoro;Acumulación de riquezas valiosas.  
-T;Tradición;Transmision cultural de generacion en generacion.  
+T;Tesoro;Acumulacion de riquezas valiosas.  
+T;Tradicion;Transmision cultural de generacion en generacion.  
 T;Triunfo;Victoria o exito notable.  
 T;Tulipan;Flor de colores vivos y forma caracteristica.  
 T;Talisman;Objeto que da buena suerte.  
 U;Universo;Todo lo que existe fisicamente.  
-U;Union;Vínculo o acuerdo entre elementos.  
+U;Union;Vinculo o acuerdo entre elementos.  
 U;Utopia;Sociedad ideal imaginaria.  
 U;Urbe;Ciudad muy poblada.  
 U;Uniforme;Vestimenta igual para un grupo.  
@@ -205,13 +205,13 @@ V;Virtud;Cualidad moral positiva.
 V;Vuelo;Desplazamiento por el aire.  
 V;Venganza;Respuesta a una ofensa con otra ofensa.  
 V;Valle;Depresion entre montanyas.  
-V;Violeta;Planta de pequeñas flores moradas.  
-V;Vinculo;Conexión emocional o legal.  
+V;Violeta;Planta de pequenyas flores moradas.  
+V;Vinculo;Conexion emocional o legal.  
 V;Vortice;Flujo giratorio en un fluido.  
 X;Xilofono;Instrumento musical de laminas percutidas.  
 X;Examen;Prueba para evaluar conocimientos.  
 X;Boxeo;Deporte de combate con punyos.  
-X;Taxi;Vehículo de alquiler con conductor.  
+X;Taxi;Vehiculo de alquiler con conductor.  
 X;Extravagante;Que se sale de lo comun.  
 X;Xenofobia;Odio o miedo a los extranjeros.  
 X;Experimento;Prueba controlada para validar una hipotesis.  
@@ -219,15 +219,12 @@ X;Exito;Resultado favorable en un intento.
 X;Explorar;Investigar lo desconocido.  
 X;Exotico;Que proviene de un lugar lejano o extranyo.  
 Y;Yate;Embarcacion de recreo lujosa.  
-Y;Yoga;Disciplina fisica y mental originaria de la India.  
-Y;Yunque;Herramienta de metal para forjar.  
+Y;Yoga;Disciplina fisica y mental originaria de la India.    
 Y;Yodo;Elemento quimico usado en desinfectantes.  
 Y;Yacimiento;Lugar donde se hallan recursos naturales.  
 Y;Yermo;Terreno arido e inhabitado.  
 Y;Yunque;Herramienta de metal para forjar.  
-Y;Yegua;Hembra del caballo.  
-Y;Yunque;Herramienta de metal para forjar.  
-Y;Yunque;Herramienta de metal para forjar.  
+Y;Yegua;Hembra del caballo.    
 Z;Zorro;Mamifero carnivoro de cola peluda.  
 Z;Zanahoria;Hortaliza de color naranja y raiz comestible.  
 Z;Zen;Escuela de budismo que enfatiza la meditacion.  
@@ -235,6 +232,6 @@ Z;Zocalo;Base de una estructura o plaza principal en Mexico.
 Z;Zumo;Liquido extraido de frutas o vegetales.  
 Z;Zodiaco;Circulo de constelaciones en la astronomia.  
 Z;Zafiro;Piedra preciosa de color azul.  
-Z;Zombi;Muerto viviente en la ficción.  
+Z;Zombi;Muerto viviente en la ficcion.  
 Z;Zarza;Arbusto con espinas.  
 Z;Zepelin;Dirigible rigido.
